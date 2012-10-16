@@ -498,7 +498,7 @@ public class AWSQueryConnection extends AWSConnection {
     HttpConnectionParams.setSoTimeout(params, soTimeout);
 
     params.setParameter(AllClientPNames.MAX_TOTAL_CONNECTIONS, maxConnections);
-    params.setParameter(AllClientPNames.VIRTUAL_HOST, getServer());
+    params.setParameter(AllClientPNames.VIRTUAL_HOST, new HttpHost(getServer()));
     params.setParameter(AllClientPNames.MAX_CONNECTIONS_PER_ROUTE, new ConnPerRouteBean(maxConnections));
 
     SchemeRegistry registry = new SchemeRegistry();
